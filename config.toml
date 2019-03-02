@@ -8,6 +8,7 @@ pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 disqusShortname = "colecornford"
+disableFastRender=true
 
 
 [Params]
