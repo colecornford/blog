@@ -6,7 +6,7 @@ comments: false
 
 ### Who am I?
 
-![me](/img/me.jpg)
+![me](../../img/me.jpg)
 **_Welcome friends_**! I'm Cole, an AppSec professional who can't stop speaking when I get put on a stage. If you've got an interest in InfoSec and personal development then I hope you find the things I write about the to be valuable to you!
 
 ### What's this about?
@@ -15,7 +15,7 @@ I've met a lot of damn smart people in the InfoSec space. Pen-testers, Architect
 
 * Adversaries know our applications and networks better than we do
 * We're playing cat and mouse constantly, putting in controls that are already aged when they go-live
-* It seems no matter how much education we provide users we still get plenty of clicks on <a href="../evil">phishing</a> links constantly.
+* It seems no matter how much education we provide users we still get plenty of clicks on [phishing](/evil) links constantly.
 * and plenty more...
 
 If you're seeing this, then you might feel that the future isn't particularly bright for InfoSec. We're living in a very fast-paced time, and the challenges we encounter are not easy to solve by any means.
