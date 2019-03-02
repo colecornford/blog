@@ -1,4 +1,5 @@
-baseurl = "https://colecornford.github.io/Blog/"
+publishDir = "docs"
+baseURL = "https://colecornford.github.io/Blog/"
 DefaultContentLanguage = "en"
 title = "Cole Cornford"
 theme = "beautifulhugo"
@@ -8,7 +9,7 @@ pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 disqusShortname = "colecornford"
-publishDir = "docs"
+
 
 [Params]
   homeTitle = "Hi, I'm Cole!"
