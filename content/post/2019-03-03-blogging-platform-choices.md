@@ -9,7 +9,7 @@ It wasn't that bad, I was watching my favourite [MTG Streamer](https://www.youtu
 
 ![Disgusting Combo](../../img/posts/2019-mar3-sorin.jpg)
 
-I had realised I had gone through 2018 without terribly many technical achievements in work and life. Sure, I had learned an amazing amount from my wonderful colleagues like Farooq, Nina, and Stefano. But it seemed like for that time period, I'd just gained an extra notch on my LinkedIn profile. I didn't have much to show for all the amazing things I had learned and studied throughout the year.
+I had realised I had gone through 2018 without terribly many technical achievements in work and life. Sure, I had learned a huge amount from my amazing colleagues. But it seemed like for that time period, I'd just gained an extra notch on my LinkedIn profile. I didn't have much to show for all the awesome things I had learned and studied throughout the year.
 
 ## Cool Guys Inc
 
@@ -19,7 +19,7 @@ All of which would probably make for good blog topics, so I figured, hey, maybe 
 
 * Buying my personal domain before some arsehat takes it
 * More opportunities to work on my technical and personal writing skills again
-* Keep a non-git repository of awesome resources and things I'm learning/doing/have done.
+* Keep a non-git repository of brilliant resources and things I'm learning/doing/have done.
 * A portfolio to show for future work opportunities
 
 So, I spoke with my friends at Cool Guys Inc and they all said go for it!

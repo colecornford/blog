@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Cole Cornford</title>
-    <link>https://thirsty-brown-e272aa.netlify.com/page/</link>
+    <link>https://www.colecornford.com/page/</link>
     <description>Recent content in Pages on Cole Cornford</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	<atom:link href="https://thirsty-brown-e272aa.netlify.com/page/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.colecornford.com/page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>https://thirsty-brown-e272aa.netlify.com/page/resources/</link>
+      <link>https://www.colecornford.com/page/resources/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://thirsty-brown-e272aa.netlify.com/page/resources/</guid>
+      <guid>https://www.colecornford.com/page/resources/</guid>
       <description>Resources I read and research a lot, so I thought i would curate all the things I find to help others get to the useful content.
 I&amp;rsquo;ll also do shorthand reviews here for books.</description>
     </item>
     
     <item>
       <title>Contact me</title>
-      <link>https://thirsty-brown-e272aa.netlify.com/page/contact/</link>
+      <link>https://www.colecornford.com/page/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://thirsty-brown-e272aa.netlify.com/page/contact/</guid>
+      <guid>https://www.colecornford.com/page/contact/</guid>
       <description>I regularly attend developer and security conferences and spend a bunch of time in Sydney cafes and bars, so feel free to come bug me there.
 This year I&amp;rsquo;m looking to attend or speak at:
  BSides Canberra Bsides Brisbane Bsides Sydney NDC Security Gold Coast Kiwicon  You can also reach me on LinkedIn or at Twitter, or just send me an email.
@@ -33,10 +33,10 @@ Peace!</description>
     
     <item>
       <title>Projects</title>
-      <link>https://thirsty-brown-e272aa.netlify.com/page/projects/</link>
+      <link>https://www.colecornford.com/page/projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://thirsty-brown-e272aa.netlify.com/page/projects/</guid>
+      <guid>https://www.colecornford.com/page/projects/</guid>
       <description>This year I&amp;rsquo;m looking at either starting, continuing, or contributing to the below projects. Some are ideas I&amp;rsquo;ve kicked around with a few mates, others there&amp;rsquo;s definitely an industry gap I&amp;rsquo;d like to fill, and then others are just experimenting with something cool.
 No real priorities, so please let me know what you&amp;rsquo;re interested in!
 I&amp;rsquo;m also available for consulting, so feel free to email me if you&amp;rsquo;d like to work together.</description>
@@ -44,10 +44,10 @@ I&amp;rsquo;m also available for consulting, so feel free to email me if you&amp
     
     <item>
       <title>Start Here!</title>
-      <link>https://thirsty-brown-e272aa.netlify.com/page/start/</link>
+      <link>https://www.colecornford.com/page/start/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://thirsty-brown-e272aa.netlify.com/page/start/</guid>
+      <guid>https://www.colecornford.com/page/start/</guid>
       <description>Who am I? Welcome friends! I&amp;rsquo;m Cole, an AppSec professional who can&amp;rsquo;t stop speaking when I get put on a stage. If you&amp;rsquo;ve got an interest in InfoSec and personal development then I hope you find the things I write about the to be valuable to you!
 What&amp;rsquo;s this about? I&amp;rsquo;ve met a lot of damn smart people in the InfoSec space. Pen-testers, Architects, Engineers, you name it! Despite all of these talented people working hard to solve REAL problems, the same issues continue to crop up:</description>
     </item>
