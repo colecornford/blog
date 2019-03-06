@@ -1,7 +1,7 @@
 ---
 title: 2019 Frontend Framework Security
 date: 2019-03-01
-draft: false
+draft: true
 ---
 
 ![What are some key framework security features](../../img/posts/2019-mar6-wes.PNG)
