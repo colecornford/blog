@@ -1,0 +1,152 @@
+---
+title: Easy as C S P!
+date: 2019-04-15
+draft: false
+---
+
+One of my avid readers the other day sent me a screenshot of my website run through an automated tool.
+ 
+![SecurityDunce](../../img/posts/2019-04-16/mySecHeadsSuck.PNG)
+ 
+Well then, I suck and I guess I'll have to close up my AppSec blog now! 
+
+..
+
+But really, I think it's good to talk about what's going on here.
+
+## D Grade
+ 
+A cool dude by the name of Scott Helme released [securityheaders.com](https://securityheaders.com) which will submit a HTTP request to the domain you specified, receive a response, and then analyse the headers that were in the response.
+ 
+Your website is then graded on which headers you have in place and also what level and kind of detail you have in them. A few examples that come to mind are Content Security Policy, HTTPS implementations, CORS policy, and the various X-content or X-Frame or XSS things that browsers can ignore. 
+
+For this post, I wanted to talk a bit about the CSP header, and my implementation on it to correct this **D Grade**.
+
+But, before i continue into my CSP implementation, here are a few WebSec definitions that should give new readers some context for this article!
+
+* **Content-Security-Policy**: Whitelist good resources (scripts, fonts, images, stylesheets, etc), block everything else.
+* **HTTPS**: Ensure TLS is used to encrypt your connection.
+* **Origin**: Combination of Protocol, Host, Port. 
+	`
+	https:\\colecornford.com:443
+	`
+* **Same-Origin**: Scripts in _webpage1_ previously may access data in _webpage2_ but only if they come from the same origin.
+* **Cross-Origin-Resource-Sharing**: Relaxes Same-Origin a bit (sometimes too much, another blog post there!). Important if you have apps that span across multiple domains.
+* **HTTP Security Headers**: There are a bunch that help mitigate clickjacking, xss, mixed content, frame abuse, etc.
+
+So, let's get on with the post!
+
+## My implementation of a CSP
+
+With a Content-Security-Policy, It's incredibly easy to **TERRIBLY** break your website. Case in point:
+
+![SecurityDunce](../../img/posts/2019-04-16/lolcsp.png)
+
+The below is quite a secure policy.. disable everything. 
+
+```javascript
+default-src 'none';
+```
+As you can see, my website is now a retro Web 1.0 homage and secure! It's also ugly and barely usable, so don't recommend starting there.
+
+It's easier to look at a terrible policy and go from there instead.
+
+```javascript
+script-src 'unsafe-inline' 'unsafe-eval' 'self';
+style-src 'self' 'unsafe-inline';
+default-src 'self' * 127.0.0.1 https://test.colecornford.com;
+```
+
+## Permissive or missing sources
+
+When people are initially writing a CSP, it's quite easy to become frustrated with your website not rendering correctly. Just having a look at the developer console in your browser tools is enough to make people consider an easier option. The easy option is known as the **evil asterisk**.
+
+With the asterisk, you're effectively disabling any protections for that type of source. Similarly, if you forget to include a source type as part of your implementation, then the browser will use the default-src to allow or block content.
+
+**TLDR: Don't use the evil asterisk**
+
+## unsafe-inline and unsafe-eval
+
+These literally say **unsafe** and that's because they allow the use of inline resources on a webpage and allow DOM API methods to execute. These are vectors an attacker can exploit for a number of cross-site-scripting vulnerabilities.
+
+But when initially creating a CSP, depending on the size and age of your website, you may have to deal with a lot of inline scripts and other resources or a bunch of old code. 
+
+If the technical debt is large enough to make you sad, then using these options in your default-src is better than breaking the functionality or look of your website. It's a stopgap measure, but it's more effective than no CSP.
+
+**TLDR: Try to avoid unsafe-inline/unsafe-eval UNLESS your website relies on those. Having those directives is better than no CSP at all. Afterwards, have a sook about your codebase.**
+
+## Test policy in production
+
+Adversaries love to poke around websites to identify the attack surface they have access to. People unfamiliar with CSP may use a test environment to see how CSP changes affect their site, rather than use Content-Security-Policy-Report-Only. 
+
+This could result in either development or test environment details being leaked to an attacker. Similar to someone reading a robots.txt, a poor CSP may give a bit more information than you would like.
+
+Having separate policies for each environment should assist with this.
+
+**TLDR: Remove dev and test URLs from your policies before promotion. Use Report-Only mode on changes.**
+
+## Trust Boundaries
+
+Okay, we have a nicer CSP now, but there is still more work to go.
+ 
+```javascript
+script-src 'unsafe-inline' 'self';
+style-src 'self' 'unsafe-inline';
+default-src 'self';
+object-src 'none';
+```
+
+At this point, we get to a concept called trust boundaries. Instead of being permissive, we consider what resources we are going to trust, and restrict our CSP to allow those exclusively.
+
+For static content, 'self' and trusted domains is usually secure. It's a different story for executable scripts though.
+
+If you are running a Single Page Application, then having a policy that allows 'self' increases the attack surface available to an attacker. 
+
+In a similar manner, if you're whitelisting a domain then an attacker can upload their malicious code to that domain. Sure, we might trust our own personal domains or large companies, but for CDN's and similar it might be a different story altogether.
+
+Just be mindful of what level of risk you're willing to accept, and whitelist domains as needed. 
+
+**TLDR: Whitelist domains you trust, consider more advanced measures such as SRI, Hashes, and Nonces as part of your CSP if you have the capability and time.**
+
+## My CSP and the future
+
+I settled on this CSP for my website today.
+
+```javascript
+	default-src 'self'; 
+	script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://code.jquery.com https://cse.google.com https://prismjs.com; 
+	style-src 'self' https://cdnjs.cloudflare.com https://use.fontawesome.com https://maxcdn.bootstrapcdn.com https://fonts.googleapis.com;
+	font-src 'self' https://use.fontawesome.com https://fonts.gstatic.com https://maxcdn.bootstrapcdn.com https://fonts.googleapis.com https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com;
+	connect-src 'self';
+	media-src 'none';
+	object-src 'none';
+	frame-src 'none';
+	worker-src 'none';
+	form-action 'self';
+	base-uri 'none';
+```
+I ran it through googles [CSP evaluator](https://csp-evaluator.withgoogle.com/) and got the following results.
+
+![BetterCSP](../../img/posts/2019-04-16/betterCSP.PNG)
+
+Overall, I think that I'm fairly pleased with this so far. To quickly run through my decisions in making this policy.
+
+### script-src
+
+I use unsafe-inline as I rely on a theme for Hugo that I do not want to modify at this point in time to push inline scripts into separate javascript files.
+
+I have a number of JS files stored locally, but would rather fetch them with SRI enabled from CDN's to reduce server load. My website is also a static site with limited user interaction. I feel that the 'self' argument is fine to use here.
+
+### style, font, connect, and the rest.
+
+For style and font, the content is static, so I'm okay with specifying a few domains I trust for fetching from. For connect, this is a remnant from local testing with my website. Hugo uses websockets to automatically refresh the page as I make changes to my markdown, thus creating a "live refresh". This is disabled in production however, so I should technically set this to 'none'.
+
+The rest of the directives are content I don't expect to see on the website, and I believe it should be blocked. In addition, I wanted to specify the base-uri as 'none' to prevent people trying to use the base tag in an XSS execution attempt.
+
+There are other attributes, but they are not fully supported by most current browsers yet, or require engineering effort on my behalf to implement correctly. For now, this is hopefully enough to get a C grade. ^_^
+
+Anyway friends, hope this has been a helpful read for you all. If you've got other topics you would like to learn about, please hit me up on LinkedIn! 
+
+Thank you.
+
+Cole Cornford
