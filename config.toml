@@ -4,9 +4,9 @@ title = "Cole Cornford"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
-pygmentsUseClasses = true
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
+pygmentsUseClasses = false
+pygmentsCodeFences = false
+pygmentsCodefencesGuessSyntax = false
 disqusShortname = "colecornford"
 disableFastRender=true
 
