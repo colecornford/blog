@@ -26,19 +26,6 @@ It just proves that we absolutely need to _flip_ our current approaches to InfoS
 
 If you're not sure where to begin, I've compiled a bunch of my beginner friendly posts here. Pick whichever one sounds most fun to you!
 
-* Personal Development
- * 
- * 
- * 
-* Communication
- * 
- * 
- * 
-* Security and Development
- * 
- * 
- * 
-
 ### Catch up with me!
 
 Connect on LinkedIn or Follow on Twitter below for regular updates about myself and the blog. I try to write once or twice a week. Absolutely feel free to message me if you want some advice about the industry or are interested in  consulting for your organisation.
