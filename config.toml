@@ -7,7 +7,7 @@ pygmentsStyle = "trac"
 pygmentsUseClasses = false
 pygmentsCodeFences = false
 pygmentsCodefencesGuessSyntax = false
-disqusShortname = "colecornford"
+disqusShortname = ""
 disableFastRender=true
 
 
@@ -23,8 +23,8 @@ disableFastRender=true
   readingTime = true
   wordCount = false
   useHLJS = true
-  socialShare = true
-  delayDisqus = true
+  socialShare = false
+  delayDisqus = false
   showRelatedPosts = true
 
 [Author]
