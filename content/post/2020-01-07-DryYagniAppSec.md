@@ -1,6 +1,6 @@
 ---
-title: Code Quality vs Code Security 
-date: 2020-01-07
+title: "Code Quality vs Code Security" 
+date: 2020-01-07T00:29:41-06:00 
 ---
 
 Today, I was reviewing some source code for security weaknesses. I stumbled across code that made me chuckle. Something along these lines.
