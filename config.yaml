@@ -1,7 +1,7 @@
 baseURL: https://colecornford.com
 languageCode: en-us
 defaultContentLanguage: en
-title: Cupper
+title: Cole Cornford
 theme: cupper-hugo-theme
 googleAnalytics: 
 disqusShortname: 
@@ -17,9 +17,9 @@ imaging:
   quality: 99
 
 params:
-  description: An accessibility-friendly Hugo theme, ported from the [original Cupper](https://github.com/ThePacielloGroup/cupper) project.
-  homeMetaContent: An accessibility-friendly Hugo theme, ported from the original Cupper project.
-  footer: Made with [Hugo](https://gohugo.io/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme). Deployed to [Netlify](https://www.netlify.com/).
+  description: Security, Gaming, Travel, and other interests!
+  homeMetaContent: Security, Gaming, Travel, and other interests!
+  footer: (c) Cole Cornford 2020
   # For more date formats see https://gohugo.io/functions/format/
   dateFormat: Jan 2, 2006
   codePenUser: someUser
@@ -40,10 +40,10 @@ menu:
     - name: Tags
       url: /tags/
       weight: 3
-    - name: contact
-      url: /contact/
+    - name: Resources
+      url: /resources/
       weight: 4
-    - name: projects
+    - name: Projects
       url: /projects/
       weight: 5
     - name: RSS
@@ -72,10 +72,10 @@ markup:
     codeFences: false
     hl_Lines: ""
     lineNoStart: 1
-    lineNos: false
-    lineNumbersInTable: true
+    lineNos: true
+    lineNumbersInTable: false
     noClasses: true
-    style: monokai
+    style: github
     tabWidth: 4
   tableOfContents:
     endLevel: 6
