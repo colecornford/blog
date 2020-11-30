@@ -3,8 +3,8 @@
   for = "/*"
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
-    X-Content-Type-Options: nosniff
-    Referrer-Policy: strict-origin-when-cross-origin
-    Access-Control-Allow-Origin: null
-    Permissions-Policy: geolocation=()
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Access-Control-Allow-Origin = "null"
+    Permissions-Policy = "geolocation=()"
     Content-Security-Policy = "script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; object-src 'none'; base-uri 'none'; require-trusted-types-for 'script'; report-uri https://csp.example.com;"
