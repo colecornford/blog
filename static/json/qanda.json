@@ -6,7 +6,7 @@
     "b": "Session and Network",
     "c": "Application and Presentation",
     "d": "Network Layer Only",
-    "feedback": "A, The 7 layers of the OSI Model are Physical, Data-Link, Network, Transport, Session, Presentation, and Application. The Physical and Data-link layers are concerned with the physical hardware or network interface device. The Network layer uses IP to route data, while the Transport layer uses TCP to ensure delivery. The higher layers are used for web application functionality."
+    "feedback": "A, The Network layer uses IP to route data, while the Transport layer uses TCP to ensure delivery. The Physical and Data-link layers are concerned with the physical hardware or network interface device. The Session, Application, and Presentation layers are used for web application functionality."
 }, {
     "question": "Considering that you work for a financial institution that is heavily regulated. Which technique would be BEST for prioritising control implementation?",
     "dom": "grc",
@@ -74,7 +74,7 @@
     "a": "SSL is an old implementation of TLS, TLS has no weaknesses.",
     "b": "TLS is a rebrand of SSL to move away from branding concerns.",
     "c": "SSL is used primarily to secure websockets, whereas TLS encrypts the Transport layer",
-    "d": "TLS is a new implementation of SSL that addresses the performance and security issues of SSL.",
+    "d": "TLS is a new protocol created to address the shortcomings of SSL.",
     "feedback": "D, TLS is a new protocol to succeed and improve upon SSL. TLS and SSL are separate protocols, not a new implementation. TLS may have weaknesses. TLS is a new protocol, not a rebrand. SSL may be used to encrypt websockets but is not primarily used for this. TLS should be used instead for websockets."
 },
 {
@@ -190,7 +190,7 @@
 {
     "question": "The 'HELO' command is part of which protocol ?",
     "dom": "basics",
-    "answer": "d",
+    "answer": "c",
     "a": "DNS",
     "b": "HTTPS",
     "c": "SMTP",
@@ -210,7 +210,7 @@
 {
     "question": "You are working at a small government institution. Your external auditor has identified non-compliance with a government security standard. As the security manager, what would be your FIRST action?",
     "dom": "grc",
-    "answer": "d",
+    "answer": "b",
     "a": "Immediately implement the controls identified in the audit.",
     "b": "Perform a risk assessment of the areas the controls are missing from, and priotise work there.",
     "c": "Build a business case to implement all of the controls as part of the next FY.",
@@ -298,7 +298,7 @@
     "feedback": "B, ICMP can be used for A, C, and D. But B covers the broadest and highest level use cases for ICMP."
 },
 {
-    "question": "In what circumstances is MD5 a consideration as a hashing algorithm ?",
+    "question": "When can MD5 be an appropriate hashing algorithm ?",
     "dom": "basics",
     "answer": "b",
     "a": "When we need to protect the confidentiality of data like passwords.",
