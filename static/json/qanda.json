@@ -288,16 +288,6 @@
     "feedback": "C. Encrypting using your private key and your recipients public key ensure that the message came from Alice as it would not decrypt without using her public key. If only Bob's public/private key pair is used, then there we cannot establish the message was from Alice. If we use Alice's public key for encryption, we would have a key-sharing issue with her private key and Bob. Similarly, if Alice ONLY encrypts using her private key, then anybody will be able to read her message using her public key."
 },
 {
-    "question": "What is ICMP primarily used for ?",
-    "dom": "network",
-    "answer": "b",
-    "a": "Exfiltrating data in a slow, but covert manner from an internal network.",
-    "b": "To report errors and provide network information.",
-    "c": "To ping whether a host is operational or not.",
-    "d": "To test the latency of a request in an internal network.",
-    "feedback": "B, ICMP can be used for A, C, and D. But B covers the broadest and highest level use cases for ICMP."
-},
-{
     "question": "When can MD5 be an appropriate hashing algorithm ?",
     "dom": "basics",
     "answer": "b",
@@ -336,5 +326,95 @@
     "c": "High computation time, especially on larger codebases.",
     "d": "Demonstrating the flow of tainted data from vulnerability source, to sink.",
     "feedback": "D, SAST tools usually implement an AST analyzer to help look for data source to sink, or at the least a GREP engine. High false positive rate, language coverage, and computational complexity are all challenges with operating a SAST tool."
+},
+{
+    "question": "Which command below will perform network enumeration without being too disruptive, intrusive, or noisy.",
+    "dom": "network",
+    "answer": "c",
+    "a": "nmap -iL targ.txt -sS -t 0 -f -p-",
+    "b": "while true; do curl -I 192.168.0.15 | grep -e 'Server: '",
+    "c": "nc -v 192.168.0.15",
+    "d": "ping 192.168.0.15 -t",
+    "feedback": "C, The netcat command will attempt to grab the banner from that IP address to help enumerate services operating on it. The nmap command, while doing a SYN scan, and being quiet with the -t 0 and -f options, is still targetting a broad range of targets and the full port range. The ping command continuously pings an IP address, as does the curl command both being noisy. "
+},
+{
+    "question": "Which port does the ping command work over?",
+    "dom": "network",
+    "answer": "b",
+    "a": "80 or 443, depending on whether we are using a secure connection.",
+    "b": "Ping does not use ports.",
+    "c": "23, as the ping is performed over an SSH connection",
+    "d": "53, as ping require access to domains to resolve DNS queries before executing.",
+    "feedback": "B, ping uses ICMP which is a layer 3 protocol and does not use ports. All other answers include the use case for their default port, but they are not appropriate for the ping command."
+},
+{
+    "question": "Which of SSL, TLS, or HTTPS provides the most security?",
+    "dom": "cloud",
+    "answer": "d",
+    "a": "SSL",
+    "b": "TLS",
+    "c": "HTTPS",
+    "d": "They provide equivalent levels of security.",
+    "feedback": "D, All three technologies refer to the same thing, securing a connection. Technically, TLS is more secure than SSL (the predecessor), and HTTPS may implement either TLS or SSL, but in general all three protocols are fairly interchangeable language."
+},
+{
+    "question": "The x-xss-protection header helps improve security in which way ?",
+    "dom": "cloud",
+    "answer": "b",
+    "a": "This header allows browsers to inspect and block harmful content if detected.",
+    "b": "This header results in worse security outcomes and is deprecated.",
+    "c": "This header blocks known malicious code from being executed in the browser.",
+    "d": "XSS attacks are automatically encoded or deleted based on the severity of the exploit.",
+    "feedback": "B, While this header was initially a step to reducing the harmfulness of XSS payloads, eventually adversaries began abusing the functionality to introduce new exploits. With the advent of new technology like security attributes, the content-security-policy, and the use of auto-escaping frameworks, there was much less need for the header. It has been deprecated for years now. All the other answers are rubbish."
+},
+{
+    "question": "You have been asked to review WAF DENY events to understand why a customer was blocked. You were able to identify the request by the error string provided by the customer. The request contained this information 'colecornford.com?alert(1)'. What is the most likely reason the customer was blocked ?",
+    "dom": "appsec",
+    "answer": "b",
+    "a": "The customer was maliciously attacking our domain and should be blocked.",
+    "b": "The customer may be hosting malware that is attacking our domain, a system refresh would be appropriate.",
+    "c": "The customer forgot to use a javascript: base for testing their coding.",
+    "d": "The system made an error and the customer was blocked accidentally.",
+    "feedback": "B, The customer may be hosting malware or malicious javascript that is modifying web requests to include XSS payloads. It is unlikely that the customer was malicious, otherwise they would not contact the institution for help. The customer is unlikely to be learning javascript using their browser navbar. The system idenfited a malicious payload and worked as expected."
+},
+{
+    "question": "A Content Security Policy is used to help mitigate XSS. Considering a website relying on javascript and image content being pulled from multiple domains, which CSP provide the BEST level of assurance ?",
+    "dom": "cloud",
+    "answer": "B",
+    "a": "Content-Security-Policy-Report-Only: script-src 'self' https://apis.google.com; img-src 'https://www.pexels.com/'; report-uri /my_reporter;",
+    "b": "Content-Security-Policy: script-src 'self' https://apis.google.com; img-src 'https://www.pexels.com/'",
+    "c": "Content-Security-Policy: script-src 'self';",
+    "d": "Content-Security-Policy: default-src https:; script-src https: 'unsafe-inline'; style-src https: 'unsafe-inline'",
+    "feedback": "B, This policy allows scripts and images to be loaded from the specified domains as requested in the question. self only is too restrictive and doesn't allow third party content. Report-Only does not prevent execution of malicious code, only reporting violations. The last policy does not address the question."
+},
+{
+    "question": "Considering a 'SameSite=Strict;' attribute has been given when setting a cookie, what functionality would that entail ?",
+    "dom": "appsec",
+    "answer": "b",
+    "a": "Cookies are not sent on normal cross-site subrequests, but are submitted when navigating to an origin site, preventing CSRF attacks.",
+    "b": "Cookies are never sent cross-site, completely removing the CSRF vector.",
+    "c": "Cookies are sent in all contexts, but most be submitted over a Secure Channel.",
+    "d": "Cookies are only submitted to websites with Strict security measures implemented.",
+    "feedback": "B, Strict enforces that cookies are only submitted to requests going to the setting domain. The other answers describe SameSite=Lax; SameSite=None; Secure, and an incorrect answer."
+},
+{
+    "question": "When using open source code, which control is the LEAST effective ?",
+    "dom": "basics",
+    "answer": "c",
+    "a": "Using a hashing algorithm to ensure file integrity when pulling from a CDN.",
+    "b": "Automated patching towards a pinned major version.",
+    "c": "Submitting pull requests to fix vulnerabilities within the codebase.",
+    "d": "Running automated scans to regularly understand your risk posture across your dependencies.",
+    "feedback": "C, individually fixing vulnerabilities, while an altruistic action, is largely time-consuming and less effective than other controls. Hashing ensures files aren't tampered in transit, or at the source. Automated patching helps reduce the timeframe you are vulnerable to an exploit. Automated scans help to prioritise non-trivial dependency fixes and contextualise risk."
+},
+{
+    "question": "When consulting with senior management, what is the most effective discussion piece to achieving buy-in for a security program?",
+    "dom": "grc",
+    "answer": "d",
+    "a": "Previous Incidents",
+    "b": "Alignment of Security Program to Business Objectives",
+    "c": "Cost / Benefit Analysis",
+    "d": "Industry Peer Comparisons",
+    "feedback": "B, Security Programs that align and operate concurrently with business objectives are more likely to be funded. Prior Incidents highlight the importance of security, but will tend to err towards controls that mitigate that specific incident over others. Cost / Benefit Analysis is okay by itself, but best when it aligns with business objectives. Industry Peers have different circumstances, risk postures, and control gaps and are not contextually relevant."
 }
 ]

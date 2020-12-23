@@ -1,5 +1,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" integrity="sha256-WLKGWSIJYerRN8tbNGtXWVYnUM5wMJTXD8eG4NtGcDM=" crossorigin="anonymous">
 
+<style>
+  .box {cursor: pointer;}
+  .noHand {cursor: auto;}
+</style>
+
 <section id="finalContainer" class="hero is-info is-success is-large is-hidden">
   <div class="hero-body">
     <div class="container">
@@ -13,10 +18,14 @@
   </div>
 </section>
 
-
+<div id="guide" class="box noHand">
+  <h1 class="block title">What's dis ?</h1>
+  <div class="content is-medium is-unselectable">A quick (or thorough) test to identify "control gaps" in your education. Click a tile to start!</div>
+  <div id="ans" class="is-hidden is-unselectable"></div>
+</div>
 <div class="tile is-ancestor">
   <div id="q10" class="tile is-parent">
-    <article class="tile is-child box">
+    <article class="tile is-child box has-background-success-light">
       <p class="title">Flash Test</p>
       <p class="subtitle is-unselectable">10 Questions!</p>
       <div class="content is-unselectable">
@@ -25,7 +34,7 @@
     </article>
   </div>
   <div id="q50" class="tile is-parent">
-    <article class="tile is-child box">
+    <article class="tile is-child box has-background-link-light">
       <p class="title">Study Time</p>
       <p class="subtitle is-unselectable">50 Questions!</p>
       <div class="content is-unselectable">
@@ -34,7 +43,7 @@
     </article>
   </div>
   <div id="q150" class="tile is-parent">
-    <article class="tile is-child box">
+    <article class="tile is-child box has-background-danger-light">
       <p class="title">Exam Prep</p>
       <p class="subtitle is-unselectable">150 Questions!</p>
       <div class="content is-unselectable">
@@ -50,12 +59,12 @@
   </div>
 </nav>
 
-<div id="interface" class="box is-hidden">
+<div id="interface" class="box noHand is-hidden">
   <div id="q" class="content is-medium is-unselectable"></div>
   <div id="ans" class="is-hidden is-unselectable"></div>
 </div>
 
-<div id="buttons" class="box is-hidden">
+<div id="buttons" class="box noHand is-hidden">
   <div id="a" class="box is-medium is-unselectable">0</div>
   <div id="b" class="box is-medium is-unselectable">1</div>
   <div id="c" class="box is-medium is-unselectable">2</div>
@@ -187,6 +196,7 @@ function getRandomInt(min, max) {
 
 function hideStage(stage) {
   if (stage == "start") {
+    guide.classList.add("is-hidden");
     q10.classList.add("is-hidden");
     q50.classList.add("is-hidden");
     q150.classList.add("is-hidden");
@@ -203,6 +213,7 @@ function hideStage(stage) {
     resultContainer.classList.add("is-hidden");
     newQ.classList.add("is-hidden");
   } else if (stage == "restart") {
+    guide.classList.remove("is-hidden");
     q10.classList.remove("is-hidden");
     q50.classList.remove("is-hidden");
     q150.classList.remove("is-hidden");
