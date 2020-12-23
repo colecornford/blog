@@ -3,13 +3,17 @@ title: Flashcards
 subtitle: Flashcard
 ---
 
+### What is this ?
+
+I wanted to write a general security question bank so that people can understand the gaps in their knowledge, and then be taken to resources to help. So have fun! 
+
 <iframe src="../flash.html" width="100%" height="800" frameBorder="0"></iframe>
 
 ### FAQs
 
 #### Why
 
-I wanted to write a general security question bank so that people can understand the gaps in their knowledge, and then be taken to resources to help. Most security resources are either awesome lists which are overwhelming, clearly targetted at a job, or not consumable. Quick quizzes with constructive feedback I think help mitigate those problems, and I can expand my own knowledge as people (inevitably) correct me.
+Most security resources are either awesome lists which are overwhelming, clearly targetted at a job, or not consumable. Quick quizzes with constructive feedback I think help mitigate those problems, and I can expand my own knowledge as people (inevitably) correct me.
 
 #### How is this built
 

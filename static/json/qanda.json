@@ -205,7 +205,7 @@
     "b": "Generation of an SSH public/private key pair using the Digital Signature Algorithm w. a keylength of 521 bits.",
     "c": "Starting an SSH connection using the SSH-Keygen command to the cole-key-ecdsa server on port 521.",
     "d": "This command is invalid and will error due to missing required parameters.",
-    "feedback": "B, This command has been given the file location, the algorithm, and the size options, so it will generate a key using those. If any options are unspecific, the command will ask you which algo/length/location to use. ssh-keygen does not initiate a connection (normally). This command is valid."
+    "feedback": "B, This command has been given the file location, the algorithm, and the size options, so it will generate a key using those. If any mandatory options are unspecified, the command will ask you for input. ssh-keygen does not initiate a connection (normally). This command is valid."
 },
 {
     "question": "You are working at a small government institution. Your external auditor has identified non-compliance with a government security standard. As the security manager, what would be your FIRST action?",
@@ -215,7 +215,7 @@
     "b": "Perform a risk assessment of the areas the controls are missing from, and priotise work there.",
     "c": "Build a business case to implement all of the controls as part of the next FY.",
     "d": "Ask ASD to fix your control gaps for you.",
-    "feedback": "B, prioritising security-work is important for under-resourced government departments. Implementing controlsd without consultation or prioritisation may have adverse affects elsewhere in the business and the controls may be unnecessary. A business case is useful to obtain funding, but it should be built using input from a risk assessment. ASD is not here to fix your control gaps."
+    "feedback": "B, prioritising security-work is important for under-resourced government departments. Implementing controls without consultation or prioritisation may have adverse affects elsewhere in the business and the controls may be unnecessary. A business case is useful to obtain funding, but it should be built using input from a risk assessment. ASD is not here to fix your control gaps."
 },
 {
     "question": "What does Address Resolution Protocol do?",
@@ -265,7 +265,7 @@
     "b": "To report errors and provide network information.",
     "c": "To ping whether a host is operational or not.",
     "d": "To test the latency of a request in an internal network.",
-    "feedback": "B, ICMP can be used for A, C, and D. But B covers the broadest and highest level use cases for ICMP."
+    "feedback": "B, ICMP can be used for data exfilrtration, to ping hosts, and to test latency and routing using tracert. But option B consolidates all of these into a single answer."
 },
 {
     "question": "You notice that the guidance for approved cryptographic algorithms has been changed since the last time you modified the internal documents. Where would be the appropriate place to update these changes? ",
