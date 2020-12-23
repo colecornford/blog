@@ -27,8 +27,9 @@ params:
   darkThemeAsDefault: false
   hideHeaderLinks: false
   search: true
-  customCss:
-  customJs:
+  #customCss:
+  #  - css/bulma.css
+
 menu:
   nav:
     - name: Home
@@ -46,9 +47,12 @@ menu:
     - name: Projects
       url: /projects/
       weight: 5
+    - name: Flashcards
+      url: /flashcards/
+      weight: 6
     - name: RSS
       url: /index.xml
-      weight: 6
+      weight: 7
 
 markup:
   defaultMarkdownHandler: goldmark
@@ -78,5 +82,5 @@ markup:
     style: github
     tabWidth: 4
   tableOfContents:
-    endLevel: 6
+    endLevel: 7
     startLevel: 2
