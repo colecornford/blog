@@ -92,7 +92,7 @@ request.onload = function() {
   qslength = Object.keys(qs).length;
 };
 
-q10.addEventListener("click", () => { startQuiz(3); }, false);
+q10.addEventListener("click", () => { startQuiz(10); }, false);
 q50.addEventListener("click", () => { startQuiz(50); }, false);
 q150.addEventListener("click", () => { startQuiz(150); }, false);
 a.addEventListener("click", () => { checkGuess("a"); }, false);
@@ -105,7 +105,7 @@ restartQuiz.addEventListener("click", () => { restart(); }, false);
 
 function startQuiz(length) {
   hideStage("start");
-  restartQuiz.textContent = "Round " + numQuizzes + " ?";
+  restartQuiz.textContent = "Test over! You have done " + numQuizzes + " quizzes so far today!";
   numQuizzes = numQuizzes + 1;
   progress.max = length;
   progress.value = 0;
