@@ -1,0 +1,231 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" integrity="sha256-WLKGWSIJYerRN8tbNGtXWVYnUM5wMJTXD8eG4NtGcDM=" crossorigin="anonymous">
+
+<style>
+  .box {cursor: pointer;}
+  .noHand {cursor: auto;}
+</style>
+
+<section id="finalContainer" class="hero is-info is-success is-large is-hidden">
+  <div class="hero-body">
+    <div class="container">
+      <h1 id="encourage" class="block title">
+        Well done!
+      </h1>
+      <h2 id="finalScore" class="block subtitle"></h2>
+      <div class="block"></div>
+      <div id="restartQuiz" class="box is-medium is-unselectable"></div>
+    </div>
+  </div>
+</section>
+
+<div id="guide" class="box noHand">
+  <h1 class="block title">What's dis ?</h1>
+  <div class="content is-medium is-unselectable">A quick (or thorough) test to identify "control gaps" in your education. Click a tile to start!</div>
+  <div id="ans" class="is-hidden is-unselectable"></div>
+</div>
+<div class="tile is-ancestor">
+  <div id="q10" class="tile is-parent">
+    <article class="tile is-child box has-background-success-light">
+      <p class="title">Flash Test</p>
+      <p class="subtitle is-unselectable">10 Questions!</p>
+      <div class="content is-unselectable">
+        <p>A great place to start. Low time commitment and simpler questions help you refresh quickly.</p>
+      </div>
+    </article>
+  </div>
+  <div id="q50" class="tile is-parent">
+    <article class="tile is-child box has-background-link-light">
+      <p class="title">Study Time</p>
+      <p class="subtitle is-unselectable">50 Questions!</p>
+      <div class="content is-unselectable">
+        <p>Set aside an hour, pull a textbook out, and read the supplementary material. Good for those who want some focussed effort.</p>
+      </div>
+    </article>
+  </div>
+  <div id="q150" class="tile is-parent">
+    <article class="tile is-child box has-background-danger-light">
+      <p class="title">Exam Prep</p>
+      <p class="subtitle is-unselectable">150 Questions!</p>
+      <div class="content is-unselectable">
+        <p>Got a job interview or certification attempt? Practice a full-range of security questions across several disciplines and see how you perform in a practice exam.</p>
+      </div>
+    </article>
+  </div>
+</div>
+
+<nav id="scoreboard" class="level is-hidden">
+  <div class="level-item has-text-centered">
+    <progress id="progress" class="progress is-info" value="0" max="0"></progress>
+  </div>
+</nav>
+
+<div id="interface" class="box noHand is-hidden">
+  <div id="q" class="content is-medium is-unselectable"></div>
+  <div id="ans" class="is-hidden is-unselectable"></div>
+</div>
+
+<div id="buttons" class="box noHand is-hidden">
+  <div id="a" class="box is-medium is-unselectable">0</div>
+  <div id="b" class="box is-medium is-unselectable">1</div>
+  <div id="c" class="box is-medium is-unselectable">2</div>
+  <div id="d" class="box is-medium is-unselectable">3</div>
+</div>
+
+<article id="resultContainer" class="message is-hidden">
+  <div class="message-header">
+    <p id="resultHeader"></p>
+    <button id="delFeedback" class="delete" aria-label="delete"></button>
+  </div>
+  <div id="resultText" class="message-body is-unselectable"></div>
+  </div>
+</article>
+
+<button id="newQ" class="button is-large is-hidden">New Question!</button>
+
+</div>
+
+<script>
+
+let questionsEncountered = [];
+let score = 0
+let numqs = 0
+let numQuizzes = 1
+let requestURL = '/json/qanda.json';
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+encountered = true;
+request.onload = function() {
+  qs = request.response;
+  qslength = Object.keys(qs).length;
+};
+
+q10.addEventListener("click", () => { startQuiz(10); }, false);
+q50.addEventListener("click", () => { startQuiz(50); }, false);
+q150.addEventListener("click", () => { startQuiz(150); }, false);
+a.addEventListener("click", () => { checkGuess("a"); }, false);
+b.addEventListener("click", () => { checkGuess("b"); }, false);
+c.addEventListener("click", () => { checkGuess("c"); }, false);
+d.addEventListener("click", () => { checkGuess("d"); }, false);
+delFeedback.addEventListener("click", () => { resultContainer.classList.add("is-hidden"); }, false);
+newQ.addEventListener("click", () => { populateQ(qs, qslength); }, false);
+restartQuiz.addEventListener("click", () => { restart(); }, false);
+
+function startQuiz(length) {
+  hideStage("start");
+  restartQuiz.textContent = "Test over! You have done " + numQuizzes + " quizzes so far today!";
+  numQuizzes = numQuizzes + 1;
+  progress.max = length;
+  progress.value = 0;
+  questionsEncountered = [];
+  populateQ(qs, qslength);
+}
+
+function restart() {
+  hideStage("restart");
+  finalScore.textContent = "";
+  score = 0;
+}
+
+function endQuiz() {
+  hideStage("end");
+  var finalPercent = Math.ceil(score / progress.max * 100);
+  if (finalPercent > 80) {
+    finalContainer.classList.add("is-success");
+    encourage.textContent = "Great Job!";
+  } else if (finalPercent > 50) {
+    finalContainer.classList.add("is-warning");
+    encourage.textContent = "Good work :D";
+  } else {
+    finalContainer.classList.add("is-danger");
+    encourage.textContent = "Keep studying and you'll be great!";
+  }
+  finalScore.textContent = "You scored: " + finalPercent + " %";
+  finalContainer.classList.remove("is-hidden");
+}
+
+function populateQ(qs, qslength) {
+  if (progress.value >= progress.max || qslength == progress.value) {
+    endQuiz();
+  } else {
+    priorQ = true
+    while (priorQ) {
+      qid = getRandomInt(0,qslength);
+      priorQ = false;
+      questionsEncountered.forEach(function(number){
+        if (qid === number) {
+          priorQ = true;
+        }
+      });
+    }
+    questionsEncountered.push(qid);
+    q.textContent = qs[qid]['question'];
+    ans.textContent = qs[qid]['answer'];
+    a.textContent = qs[qid]['a'];
+    b.textContent = qs[qid]['b'];
+    c.textContent = qs[qid]['c'];
+    d.textContent = qs[qid]['d'];
+    resultText.textContent = qs[qid]['feedback'];
+    hideStage("nextQ")
+  }
+}
+  
+function checkGuess(guess) {
+  if (guess === ans.textContent) {
+    resultContainer.classList.add("is-success");
+    resultContainer.classList.remove("is-danger");
+    resultHeader.textContent = "Correct";
+    score = score + 1
+  } else {
+    resultContainer.classList.add("is-danger");
+    resultContainer.classList.remove("is-success");
+    resultHeader.textContent = "Incorrect";
+  }
+  buttons.classList.add("is-hidden");
+  newQ.classList.remove("is-hidden");
+  resultContainer.classList.remove("is-hidden");
+  progress.value = progress.value + 1;
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
+function hideStage(stage) {
+  if (stage == "start") {
+    guide.classList.add("is-hidden");
+    q10.classList.add("is-hidden");
+    q50.classList.add("is-hidden");
+    q150.classList.add("is-hidden");
+    scoreboard.classList.remove("is-hidden");
+    interface.classList.remove("is-hidden");
+    buttons.classList.remove("is-hidden");
+  } else if (stage == "end") {
+    finalContainer.classList.remove("is-success");
+    finalContainer.classList.remove("is-warning");
+    finalContainer.classList.remove("is-danger");
+    scoreboard.classList.add("is-hidden");
+    interface.classList.add("is-hidden");
+    buttons.classList.add("is-hidden");
+    resultContainer.classList.add("is-hidden");
+    newQ.classList.add("is-hidden");
+  } else if (stage == "restart") {
+    guide.classList.remove("is-hidden");
+    q10.classList.remove("is-hidden");
+    q50.classList.remove("is-hidden");
+    q150.classList.remove("is-hidden");
+    scoreboard.classList.add("is-hidden");
+    interface.classList.add("is-hidden");
+    buttons.classList.add("is-hidden");
+    finalContainer.classList.add("is-hidden");
+  } else if (stage == "nextQ") {
+    newQ.classList.add("is-hidden");
+    resultContainer.classList.add("is-hidden");
+    buttons.classList.remove("is-hidden");
+  }
+}
+
+</script>

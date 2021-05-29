@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Program Management on Cole Cornford</title>
+    <link>https://colecornford.com/tags/program-management/</link>
+    <description>Recent content in Program Management on Cole Cornford</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://colecornford.com/tags/program-management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code Quality vs Code Security.</title>
+      <link>https://colecornford.com/2020-jan/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2020-jan/</guid>
+      <description>Today, I was reviewing some source code for security weaknesses. I stumbled across code that made me chuckle. Something along these lines.
+public String XOR(String method, String input, String key) { if (method == &amp;quot;Encrypt&amp;quot;) { return XOR_Encrypt(input, key); } else if (method == &amp;quot;Decrypt&amp;quot;) { return XOR_Decrypt(input, key); } else { return input; } }  As software engineers, we have all contributed in our own way to the legacy.</description>
+    </item>
+    
+    <item>
+      <title>AppSec 101 - Where Do I Begin?</title>
+      <link>https://colecornford.com/2019-apr-1/</link>
+      <pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2019-apr-1/</guid>
+      <description>I thought I&amp;rsquo;d write a series of blog posts covering the core aspects of Application Security, and I&amp;rsquo;m not talking about vulnerabilities. I&amp;rsquo;m going to start with well.. the start!
+Setting the Stage Generally, when organisations are first starting to think about or begin to implement an AppSec strategy, the following scenario happens in one way or another.
+Mr CIO walks into work, sits down with his double shot espresso from his local barista and writes up the following email to the organisations CISO.</description>
+    </item>
+    
+  </channel>
+</rss>

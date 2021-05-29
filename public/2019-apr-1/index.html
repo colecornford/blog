@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="generator" content="Hugo 0.83.1" />
+  <link rel="canonical" href="/2019-apr-1/">
+
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    body {
+      visibility: hidden;
+      opacity: 0;
+    }
+  </style>
+
+  <link rel="stylesheet" href="/css/prism.css" media="none" onload="this.media='all';">
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+  
+
+  
+  
+  <title>AppSec 101 - Where Do I Begin? | Cole Cornford</title>
+</head>
+
+  <body>
+    <a href="#main">skip to content</a>
+    <noscript>
+  <style>
+    body {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</noscript>
+
+    <svg style="display: none">
+  <symbol id="bookmark" viewBox="0 0 40 50">
+   <g transform="translate(2266 3206.2)">
+    <path style="stroke:currentColor;stroke-width:3.2637;fill:none" d="m-2262.2-3203.4-.2331 42.195 16.319-16.318 16.318 16.318.2331-42.428z"/>
+   </g>
+  </symbol>
+
+  <symbol id="w3c" viewBox="0 0 127.09899 67.763">
+   <text font-size="83" style="font-size:83px;font-family:Trebuchet;letter-spacing:-12;fill-opacity:0" letter-spacing="-12" y="67.609352" x="-26.782778">W3C</text>
+   <text font-size="83" style="font-size:83px;font-weight:bold;font-family:Trebuchet;fill-opacity:0" y="67.609352" x="153.21722" font-weight="bold">SVG</text>
+   <path style="fill:currentColor;image-rendering:optimizeQuality;shape-rendering:geometricPrecision" d="m33.695.377 12.062 41.016 12.067-41.016h8.731l-19.968 67.386h-.831l-12.48-41.759-12.479 41.759h-.832l-19.965-67.386h8.736l12.061 41.016 8.154-27.618-3.993-13.397h8.737z"/>
+   <path style="fill:currentColor;image-rendering:optimizeQuality;shape-rendering:geometricPrecision" d="m91.355 46.132c0 6.104-1.624 11.234-4.862 15.394-3.248 4.158-7.45 6.237-12.607 6.237-3.882 0-7.263-1.238-10.148-3.702-2.885-2.47-5.02-5.812-6.406-10.022l6.82-2.829c1.001 2.552 2.317 4.562 3.953 6.028 1.636 1.469 3.56 2.207 5.781 2.207 2.329 0 4.3-1.306 5.909-3.911 1.609-2.606 2.411-5.738 2.411-9.401 0-4.049-.861-7.179-2.582-9.399-1.995-2.604-5.129-3.912-9.397-3.912h-3.327v-3.991l11.646-20.133h-14.062l-3.911 6.655h-2.493v-14.976h32.441v4.075l-12.31 21.217c4.324 1.385 7.596 3.911 9.815 7.571 2.22 3.659 3.329 7.953 3.329 12.892z"/>
+   <path style="fill:currentColor;image-rendering:optimizeQuality;shape-rendering:geometricPrecision" d="m125.21 0 1.414 8.6-5.008 9.583s-1.924-4.064-5.117-6.314c-2.693-1.899-4.447-2.309-7.186-1.746-3.527.73-7.516 4.938-9.258 10.13-2.084 6.21-2.104 9.218-2.178 11.978-.115 4.428.58 7.043.58 7.043s-3.04-5.626-3.011-13.866c.018-5.882.947-11.218 3.666-16.479 2.404-4.627 5.954-7.404 9.114-7.728 3.264-.343 5.848 1.229 7.841 2.938 2.089 1.788 4.213 5.698 4.213 5.698l4.94-9.837z"/>
+   <path style="fill:currentColor;image-rendering:optimizeQuality;shape-rendering:geometricPrecision" d="m125.82 48.674s-2.208 3.957-3.589 5.48c-1.379 1.524-3.849 4.209-6.896 5.555-3.049 1.343-4.646 1.598-7.661 1.306-3.01-.29-5.807-2.032-6.786-2.764-.979-.722-3.486-2.864-4.897-4.854-1.42-2-3.634-5.995-3.634-5.995s1.233 4.001 2.007 5.699c.442.977 1.81 3.965 3.749 6.572 1.805 2.425 5.315 6.604 10.652 7.545 5.336.945 9.002-1.449 9.907-2.031.907-.578 2.819-2.178 4.032-3.475 1.264-1.351 2.459-3.079 3.116-4.108.487-.758 1.276-2.286 1.276-2.286l-1.276-6.644z"/>
+  </symbol>
+
+  <symbol id="tag" viewBox="0 0 177.16535 177.16535">
+    <g transform="translate(0 -875.2)">
+     <path style="fill-rule:evenodd;stroke-width:0;fill:currentColor" d="m159.9 894.3-68.79 8.5872-75.42 77.336 61.931 60.397 75.429-76.565 6.8495-69.755zm-31.412 31.835a10.813 10.813 0 0 1 1.8443 2.247 10.813 10.813 0 0 1 -3.5174 14.872l-.0445.0275a10.813 10.813 0 0 1 -14.86 -3.5714 10.813 10.813 0 0 1 3.5563 -14.863 10.813 10.813 0 0 1 13.022 1.2884z"/>
+    </g>
+  </symbol>
+
+  <symbol id="balloon" viewBox="0 0 141.73228 177.16535">
+   <g transform="translate(0 -875.2)">
+    <g>
+     <path style="fill:currentColor" d="m68.156 882.83-.88753 1.4269c-4.9564 7.9666-6.3764 17.321-5.6731 37.378.36584 10.437 1.1246 23.51 1.6874 29.062.38895 3.8372 3.8278 32.454 4.6105 38.459 4.6694-.24176 9.2946.2879 14.377 1.481 1.2359-3.2937 5.2496-13.088 8.886-21.623 6.249-14.668 8.4128-21.264 10.253-31.252 1.2464-6.7626 1.6341-12.156 1.4204-19.764-.36325-12.93-2.1234-19.487-6.9377-25.843-2.0833-2.7507-6.9865-7.6112-7.9127-7.8436-.79716-.20019-6.6946-1.0922-6.7755-1.0248-.02213.0182-5.0006-.41858-7.5248-.22808l-2.149-.22808h-3.3738z"/>
+     <path style="fill:currentColor" d="m61.915 883.28-3.2484.4497c-1.7863.24724-3.5182.53481-3.8494.63994-2.4751.33811-4.7267.86957-6.7777 1.5696-.28598 0-1.0254.20146-2.3695.58589-5.0418 1.4418-6.6374 2.2604-8.2567 4.2364-6.281 7.6657-11.457 18.43-12.932 26.891-1.4667 8.4111.71353 22.583 5.0764 32.996 3.8064 9.0852 13.569 25.149 22.801 37.517 1.3741 1.841 2.1708 2.9286 2.4712 3.5792 3.5437-1.1699 6.8496-1.9336 10.082-2.3263-1.3569-5.7831-4.6968-21.86-6.8361-33.002-.92884-4.8368-2.4692-14.322-3.2452-19.991-.68557-5.0083-.77707-6.9534-.74159-15.791.04316-10.803.41822-16.162 1.5026-21.503 1.4593-5.9026 3.3494-11.077 6.3247-15.852z"/>
+     <path style="fill:currentColor" d="m94.499 885.78c-.10214-.0109-.13691 0-.0907.0409.16033.13489 1.329 1.0675 2.5976 2.0723 6.7003 5.307 11.273 14.568 12.658 25.638.52519 4.1949.24765 14.361-.5059 18.523-2.4775 13.684-9.7807 32.345-20.944 53.519l-3.0559 5.7971c2.8082.76579 5.7915 1.727 8.9926 2.8441 11.562-11.691 18.349-19.678 24.129-28.394 7.8992-11.913 11.132-20.234 12.24-31.518.98442-10.02-1.5579-20.876-6.7799-28.959-.2758-.4269-.57803-.86856-.89617-1.3166-3.247-6.13-9.752-12.053-21.264-16.131-2.3687-.86369-6.3657-2.0433-7.0802-2.1166z"/>
+     <path style="fill:currentColor" d="m32.52 892.22c-.20090-.13016-1.4606.81389-3.9132 2.7457-11.486 9.0476-17.632 24.186-16.078 39.61.79699 7.9138 2.4066 13.505 5.9184 20.562 5.8577 11.77 14.749 23.219 30.087 38.74.05838.059.12188.1244.18052.1838 1.3166-.5556 2.5965-1.0618 3.8429-1.5199-.66408-.32448-1.4608-1.3297-3.8116-4.4602-5.0951-6.785-8.7512-11.962-13.051-18.486-5.1379-7.7948-5.0097-7.5894-8.0586-13.054-6.2097-11.13-8.2674-17.725-8.6014-27.563-.21552-6.3494.13041-9.2733 1.775-14.987 2.1832-7.5849 3.9273-10.986 9.2693-18.07 1.7839-2.3656 2.6418-3.57 2.4409-3.7003z"/>
+     <path style="fill:currentColor" d="m69.133 992.37c-6.2405.0309-12.635.76718-19.554 2.5706 4.6956 4.7759 9.935 10.258 12.05 12.625l4.1272 4.6202h11.493l3.964-4.4516c2.0962-2.3541 7.4804-7.9845 12.201-12.768-8.378-1.4975-16.207-2.6353-24.281-2.5955z"/>
+     <rect style="stroke-width:0;fill:currentColor" ry="2.0328" height="27.746" width="22.766" y="1017.7" x="60.201"/>
+    </g>
+   </g>
+  </symbol>
+
+  <symbol id="info" viewBox="0 0 41.667 41.667">
+   <g transform="translate(-37.035 -1004.6)">
+    <path style="stroke-linejoin:round;stroke:currentColor;stroke-linecap:round;stroke-width:3.728;fill:none" d="m76.25 1030.2a18.968 18.968 0 0 1 -23.037 13.709 18.968 18.968 0 0 1 -13.738 -23.019 18.968 18.968 0 0 1 23.001 -13.768 18.968 18.968 0 0 1 13.798 22.984"/>
+    <g transform="matrix(1.1146 0 0 1.1146 -26.276 -124.92)">
+     <path style="stroke:currentColor;stroke-linecap:round;stroke-width:3.728;fill:none" d="m75.491 1039.5v-8.7472"/>
+     <path style="stroke-width:0;fill:currentColor" transform="scale(-1)" d="m-73.193-1024.5a2.3719 2.3719 0 0 1 -2.8807 1.7142 2.3719 2.3719 0 0 1 -1.718 -2.8785 2.3719 2.3719 0 0 1 2.8763 -1.7217 2.3719 2.3719 0 0 1 1.7254 2.8741"/>
+    </g>
+   </g>
+  </symbol>
+
+  <symbol id="warning" viewBox="0 0 48.430474 41.646302">
+    <g transform="translate(-1.1273 -1010.2)">
+     <path style="stroke-linejoin:round;stroke:currentColor;stroke-linecap:round;stroke-width:4.151;fill:none" d="m25.343 1012.3-22.14 37.496h44.28z"/>
+     <path style="stroke:currentColor;stroke-linecap:round;stroke-width:4.1512;fill:none" d="m25.54 1027.7v8.7472"/>
+     <path style="stroke-width:0;fill:currentColor" d="m27.839 1042.8a2.3719 2.3719 0 0 1 -2.8807 1.7143 2.3719 2.3719 0 0 1 -1.718 -2.8785 2.3719 2.3719 0 0 1 2.8763 -1.7217 2.3719 2.3719 0 0 1 1.7254 2.8741"/>
+    </g>
+  </symbol>
+
+  <symbol id="menu" viewBox="0 0 50 50">
+     <rect style="stroke-width:0;fill:currentColor" height="10" width="50" y="0" x="0"/>
+     <rect style="stroke-width:0;fill:currentColor" height="10" width="50" y="20" x="0"/>
+     <rect style="stroke-width:0;fill:currentColor" height="10" width="50" y="40" x="0"/>
+   </symbol>
+
+   <symbol id="link" viewBox="0 0 50 50">
+    <g transform="translate(0 -1002.4)">
+     <g transform="matrix(.095670 0 0 .095670 2.3233 1004.9)">
+      <g>
+       <path style="stroke-width:0;fill:currentColor" d="m452.84 192.9-128.65 128.65c-35.535 35.54-93.108 35.54-128.65 0l-42.881-42.886 42.881-42.876 42.884 42.876c11.845 11.822 31.064 11.846 42.886 0l128.64-128.64c11.816-11.831 11.816-31.066 0-42.9l-42.881-42.881c-11.822-11.814-31.064-11.814-42.887 0l-45.928 45.936c-21.292-12.531-45.491-17.905-69.449-16.291l72.501-72.526c35.535-35.521 93.136-35.521 128.64 0l42.886 42.881c35.535 35.523 35.535 93.141-.001 128.66zm-254.28 168.51-45.903 45.9c-11.845 11.846-31.064 11.817-42.881 0l-42.884-42.881c-11.845-11.821-11.845-31.041 0-42.886l128.65-128.65c11.819-11.814 31.069-11.814 42.884 0l42.886 42.886 42.876-42.886-42.876-42.881c-35.54-35.521-93.113-35.521-128.65 0l-128.65 128.64c-35.538 35.545-35.538 93.146 0 128.65l42.883 42.882c35.51 35.54 93.11 35.54 128.65 0l72.496-72.499c-23.956 1.597-48.092-3.784-69.474-16.283z"/>
+      </g>
+     </g>
+    </g>
+  </symbol>
+
+  <symbol id="doc" viewBox="0 0 35 45">
+   <g transform="translate(-147.53 -539.83)">
+    <path style="stroke:currentColor;stroke-width:2.4501;fill:none" d="m149.38 542.67v39.194h31.354v-39.194z"/>
+    <g style="stroke-width:25" transform="matrix(.098003 0 0 .098003 133.69 525.96)">
+     <path d="m220 252.36h200" style="stroke:currentColor;stroke-width:25;fill:none"/>
+     <path style="stroke:currentColor;stroke-width:25;fill:none" d="m220 409.95h200"/>
+     <path d="m220 488.74h200" style="stroke:currentColor;stroke-width:25;fill:none"/>
+     <path d="m220 331.15h200" style="stroke:currentColor;stroke-width:25;fill:none"/>
+    </g>
+   </g>
+ </symbol>
+
+ <symbol id="tick" viewBox="0 0 177.16535 177.16535">
+  <g transform="translate(0 -875.2)">
+   <rect style="stroke-width:0;fill:currentColor" transform="rotate(30)" height="155" width="40" y="702.99" x="556.82"/>
+   <rect style="stroke-width:0;fill:currentColor" transform="rotate(30)" height="40" width="90.404" y="817.99" x="506.42"/>
+  </g>
+ </symbol>
+</svg>
+
+    <div class="wrapper">
+      <header class="intro-and-nav" role="banner">
+  <div>
+    <div class="intro">
+      <a
+        class="logo"
+        href="https://colecornford.com"
+        aria-label="Cole Cornford home page"
+      >
+        <img src="https://colecornford.com/images/logo.jpeg" alt="">
+      </a>
+      <p class="library-desc">
+         Security, Gaming, Travel, and other interests! 
+      </p>
+    </div>
+    <nav id="patterns-nav" class="patterns" role="navigation">
+  <h2 class="vh">Main navigation</h2>
+  <button id="menu-button" aria-expanded="false">
+    <svg viewBox="0 0 50 50" aria-hidden="true" focusable="false">
+      <use xlink:href="#menu"></use>
+    </svg>
+    Menu
+  </button>
+  
+  <ul id="patterns-list">
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Home</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/post/" aria-current="page">
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Blog</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/tags/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Tags</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/resources/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Resources</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/projects/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Projects</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/flashcards/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Flashcards</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/index.xml" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">RSS</span>
+      </a>
+    </li>
+  
+  </ul>
+</nav>
+  </div>
+</header>
+
+      <div class="main-and-footer">
+        <div>
+          
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      AppSec 101 - Where Do I Begin?
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Apr 4, 2019
+      
+        
+          <br>
+          <strong>Last updated: </strong>Nov 30, 2020
+        
+      
+    </div>
+
+    
+      <div class="tags">
+        <strong>Tags: </strong>
+        <ul aria-label="tags">
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use xlink:href="#tag"></use>
+              </svg>
+              
+              <a href="/tags/general-security/">General Security</a>
+            </li>
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use xlink:href="#tag"></use>
+              </svg>
+              
+              <a href="/tags/devsecops/">DevSecOps</a>
+            </li>
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use xlink:href="#tag"></use>
+              </svg>
+              
+              <a href="/tags/program-management/">Program Management</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+    
+    
+      
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of contents</h2>
+    <ol>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#setting-the-stage">
+            Setting the Stage
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#the-stage-is-set">
+            The Stage is Set
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#exit-stage-left">
+            Exit Stage Left
+          </a>
+        </li>
+      
+    </ol>
+  </nav>
+
+
+    
+
+    <p>I thought I&rsquo;d write a series of blog posts covering the core aspects of Application Security, and I&rsquo;m not talking about vulnerabilities. I&rsquo;m going to start with well.. the start!</p>
+<h2 id="setting-the-stage">Setting the Stage</h2>
+<p>Generally, when organisations are first starting to think about or begin to implement an AppSec strategy, the following scenario happens in one way or another.</p>
+<p><img src="../../img/posts/2019-apr6-whysast.jpg" alt="CISOgraph"></p>
+<p>Mr CIO walks into work, sits down with his double shot espresso from his local barista and writes up the following email to the organisations CISO.</p>
+<hr>
+<p><img src="../../img/posts/2019-apr6-cioYEAH.jpg" alt="CIO Yeah"></p>
+<blockquote>
+<p>Janice!</p>
+</blockquote>
+<blockquote>
+<p>I just came back from <strong>VendorCon™</strong>, and I saw a credible, evidence-based graph from a smart hackerman! He was explaining that security gets more expensive as a project progresses. I don&rsquo;t think we can do projects in shorter timeframes hahahahaha so option one is out the window. So we need to focus on security earlier instead! We have security architecture already in design, but what about BUILD? How do we get developers to do security work too? Think of the cost savings in incidents and pen-testing we can put to other initiatives.</p>
+</blockquote>
+<blockquote>
+<p>Let me know your thoughts Jan, I&rsquo;m excited about this idea!</p>
+</blockquote>
+<blockquote>
+<p>&ndash; <cite>Steve McSteveson, CIO CoolGuysInc</cite></p>
+</blockquote>
+<hr>
+<p>Janice sees this as a huge opportunity to secure funding for other important security services and replies with the following.</p>
+<p><img src="../../img/posts/2019-apr6-cisowhy.jpg" alt="CIO Yeah"></p>
+<blockquote>
+<p>Steve,</p>
+</blockquote>
+<blockquote>
+<p>Security is something that our developers already care about trying to get right. They don&rsquo;t have the time or training to become experts in everything.. We&rsquo;d be trying to hire a bunch of rockstar unicorns! Not sure that an AppSec program is the best way to improve our organisations security posture. Why don&rsquo;t we look into NAC, MFA, or expanding our other security options first?</p>
+</blockquote>
+<blockquote>
+<p>Regards,</p>
+</blockquote>
+<blockquote>
+<p>&ndash; <cite>Janice, CISO CoolGuysInc CISSC CISPRI CRISPR CSLLPS CISC2P </cite></p>
+</blockquote>
+<hr>
+<p>&hellip; and you know what? She could very well be right! There are a lot of situations where an AppSec program is not worth the investment in time or resourcing in comparison to other infosec initiatives. But let&rsquo;s assume that this organisation would benefit highly from it.</p>
+<hr>
+<p>Steve explains to Janice that the data does not lie, and our diligent CISO goes to her most trusted resource, goggle to research her options.</p>
+<p><img src="../../img/posts/2019-apr6-goggle.PNG" alt="CISOgraph"></p>
+<p>Through her thorough five minutes of research she comes across the world of Application Security and DevSecOps! After hiring a few smart DevSecOps professionals, she tasks them with solving the AppSec item as quickly as possible. But where do they begin?</p>
+<p>Now that we have set the stage, we need to talk about where to begin. AppSec is NOT about picking random tools and sticking them into DevOps pipelines and <strong>DING DING DING</strong>! Security has levelled up! There are a lot of considerations before we even begin implementing tools.</p>
+<h2 id="the-stage-is-set">The Stage is Set</h2>
+<p>Generally, when we talk about introducing an application security capability into an organisation, the most important thing is to spend time getting to know the organisation really well. If you cannot snap answer any of these questions below, then you should be doing some more research! I&rsquo;ll go through each of the below questions and explain WHY they are important to get right early. This post is fairly lengthy, so feel free to read all the <strong>TLDR</strong> instead if you&rsquo;re a CISO short on time. ;)</p>
+<h3 id="what-kind-of-sdlc-and-operating-model-does-my-organisation-follow">What kind of SDLC and operating model does my organisation follow?</h3>
+<p>If you are unsure whether your organisation is following a Waterfall or Agile or Continuous Delivery development methodology, then it becomes really difficult to select tools that are effective for them.</p>
+<p>Some of the Application Security tools function in very different ways, I&rsquo;ll cover in a later blogpost the differences between various SAST tools, but here is an example</p>
+<p>Let&rsquo;s take a tool such as <a href="https://github.com/dxa4481/truffleHog">TruffleHog</a>. Trufflehog finds secrets accidentally committed to a git repository.</p>
+<p>Trufflehog relies on computationally fast algorithms (Regex Matches and calculating string entropy across git diffs) but has very limited scope in what it achieves. Because of this, it would work great in an environment leaning much closer to CD or Agile.</p>
+<p>If you pick a commercial security-focussed static analysis tool, it would probably work in a fundamentally different way. Generally, commercial SAST tools compile source code into Intermediate Representations. Software that performs data-flow, control-flow, semantic, structural, or other forms of complicated analysis on these representations is then run, and the results put into some form of defect management system. A quick runthrough is below.</p>
+<p><img src="../../img/posts/2019-apr6-howsast.jpg" alt="How SAST operates"></p>
+<p>The issue with these? They go deep! They are precise and find a wide-range of security defects. They are also horrendously slow. This might be fine if you&rsquo;re used to nightly builds or a secure code review per release, but if you&rsquo;re paying for compute and releasing several times a day, then these tools might make your developers balk at the prospect.</p>
+<p>This question applies to what AppSec tools you are able to run on a production instance too! If you&rsquo;re a twelve factor organisation, go ahead and instrument your applications or run a bunch of WAFs. But if you&rsquo;re in healthcare or finance, well, it may be outside of your risk appetite to have protective controls running in your production systems in case you block legitimate traffic.</p>
+<p>TLDR: <strong>Know your operational model, then you can make optimal tool selections.</strong></p>
+<h3 id="what-existing-tools-are-in-place">What existing tools are in place?</h3>
+<p>Hey, developers are smart cookies. They care a hell of a lot about their craft. Nobody wants to be <em>that guy</em> who deployed a password in a git commit, or wrote a SQL Injectable login form. A lot of developers are already taking active steps to make sure that their applications are secure!</p>
+<p>So, don&rsquo;t be afraid, go and talk to them. Yes, I know, you&rsquo;re probably thinking&hellip;</p>
+<blockquote>
+<p>&ldquo;I got into InfoSec to avoid talking to people and you&rsquo;re asking me to go and talk to people? Don&rsquo;t do this to me please.&rdquo;</p>
+<p>&ndash; <cite>Standard InfoSec Rhetoric</cite></p>
+</blockquote>
+<p>Well, drink a cup of concrete and harden up. If you want to do right by yourself and your clients, then go and talk to your developers. They have probably researched and added a few tools into their workflows like <a href="https://brakemanscanner.org/">Brakeman</a> or <a href="https://snyk.io/">Snyk</a>. Why not continue to use the things they are already comfortable with and actively maintaining?</p>
+<p>TLDR: <strong>Talk to your developers. Don&rsquo;t make assumptions.</strong></p>
+<h3 id="do-we-use-cloud-services-which-ones">Do we use cloud services? Which ones?</h3>
+<p>If your organisation is using cloud services, then the types of controls available to you can change dramatically. Do not think in terms of &ldquo;<em><strong>What DevSecOps tools do I need to deploy</strong></em>&rdquo;. Instead, try &ldquo;<em><strong>What cloud services do I need to integrate with my apps</strong></em>&rdquo;.</p>
+<p>Amazon, Azure, Alibaba, even the goggles have security services available to use, and it&rsquo;s far better to look into using those services than it is to manage your own.</p>
+<p>Amazon provides <a href="https://aws.amazon.com/inspector/">Inspector</a>, <a href="https://aws.amazon.com/guardduty/">GuardDuty</a>, and <a href="https://aws.amazon.com/waf/">AWS Web Application Firewall</a>. No need to be investing in a bunch of Rapid7, Nessus, or nmap scans or managing a WAF when you can take advantage of what Amazon has available already to plug in. Chinese competitor Alibaba offers similar services with <a href="https://www.alibabacloud.com/product/avds">Website Threat Inspector</a> and their <a href="https://www.alibabacloud.com/product/waf">Web App Firewall</a> as well.</p>
+<p>If you&rsquo;re not in the cloud yet, or are progressing towards it, then this knowledge will help drive design discussions for cloud-first applications in the future or alternatively to select offerings with airgap capability, with the latter being more relevant if you&rsquo;re one of <a href="https://asd.gov.au/careers/currentvacancies.htm">those spooky people</a>.</p>
+<p>TLDR:</p>
+<ul>
+<li><strong>If you&rsquo;re a cloud first org, take advantage of cloud security services, best place to be!</strong></li>
+<li><strong>If you&rsquo;re starting a cloud journey, use your foresight and knowledge of The Cloud™ to steer discussion into adopting security early in the process.</strong></li>
+<li><strong>If you&rsquo;re super not into cloud, great! Use tools that work in airgapped environments instead!</strong></li>
+</ul>
+<h3 id="how-big-is-our-organisation">How big is our organisation?</h3>
+<p>This matters a lot. If you are a tiny start up, then things such as governance, compliance, regulatory affairs, defect management, federation of services, homogenous or hetergenous environments, etc are not as important to you. All these things become drastically more important as your organisation increases in size. Eventually you end up with a weird Venn diagram with conflicting requirements and no real way to read properly.</p>
+<p><img src="../../img/posts/2019-apr6-dumb.jpg" alt="Dumb"></p>
+<p>When you work for a larger organisation, there are a lot more aspects to consider and because of this you need to work out what the highest priorities are and remember that you can&rsquo;t boil the ocean.</p>
+<p>Using data from your educational initiatives, your vulnerabilitiy programs, or even your security incidents is a great place to  begin working out where to start. Otherwise you&rsquo;ll be stuck in mud being unable to accomplish anything.</p>
+<p>TLDR:</p>
+<ul>
+<li>
+<p><strong>If you are a small organisation, you have the freedom to experiment and implement as you see fit. Enjoy!</strong></p>
+</li>
+<li>
+<p><strong>If you are a huge organisation, paper-based assessments will fail due to the complexity of the engagement. Work out one weakness and focus on getting that up to scratch first. Crawl before Run hey? Most huge organisations are crawling, be patient and accept that.</strong></p>
+</li>
+</ul>
+<h3 id="what-programming-languages-are-we-using">What programming languages are we using?</h3>
+<p>This matters for tool selection. Some tools have great coverage across a number of languages, but lack depth and need triaging before use like <a href="https://github.com/wireghoul/graudit/">GRAudit</a>. Others are specifically tied to a language like <a href="https://github.com/dylang/npm-check">npmcheck</a>. Knowing what languages you need to support should drive your tooling decisions.</p>
+<p>This is especially relevant if you work in a faster-paced organisation where things change a lot. If you need to update tools a bunch and remain bleeding edge, there is no point investing in security tools that become useless after 6 months of use.</p>
+<p>Similarly, there are tools on the market that do one job and do it well, and if you&rsquo;re a <strong>.NET4Life</strong> kind of organisation, then they&rsquo;ll do splendidly!</p>
+<p>TLDR: <strong>Know what you&rsquo;re developing in, choose tools that suit.</strong></p>
+<h3 id="what-are-the-most-important-assets-our-business">What are the most important assets our business?</h3>
+<p>If you don&rsquo;t know what matters to your business, then you&rsquo;re not going to be an effective security service. Get an authoritative person from Business or Risk to clarify exactly what software is needed to keep the business running, and which things have the highest amount of risk associated with them. Then focus your AppSec on them.</p>
+<p>Who cares about SQLI on a stand alone marketing website if your trading platform gets taken down by a Regex DOS at 9am Monday?</p>
+<p>TLDR: <strong>Risk is Everything. Focus AppSec on servicing critical applications first</strong></p>
+<h3 id="-do-i-have-money-">&hellip; Do I have money ?</h3>
+<p>Last but not least, and this is a simple one. Money.</p>
+<p><img src="../../img/posts/2019-apr6-shutup.jpg" alt="Dumb"></p>
+<p>Funding for infrastructure, resourcing, education and training, or just to purchase commercial variants of tools is a huge part of starting an AppSec program. Because of this, your operational model needs to keep into account whether you provide the service for free and gets absorbed by your organisations cost centre, or whether individual projects or applications need to pay for access to these services.</p>
+<p>Cost influences adoption, if things are too expensive, developers may look elsewhere or ignore your services altogether. But too far in the other direction and you&rsquo;ll have anaemic services that developers will pay limited attention to.</p>
+<p>Achieving a balance is difficult here, and every organisation will need a different approach to ensuring that you keep your budget afloat, your services in use, and your services valuable.</p>
+<p>Also, negotiate, always negotiate. Here&rsquo;s a few to look at:</p>
+<ul>
+<li>Vendor Pricing
+<ul>
+<li>Tool access</li>
+<li>Support costs</li>
+<li>Implementation assistance</li>
+<li>Training in tool usage</li>
+</ul>
+</li>
+<li>Developers not wanting to pay for access</li>
+<li>Developers not wanting to fix issues</li>
+<li>Manager-speak blah blah won&rsquo;t do this</li>
+<li>Operational Management Costs</li>
+<li><strong>Ice Cream on fridays</strong></li>
+</ul>
+<p><a href="https://www.jordanharbinger.com/alex-kouts-the-secrets-you-dont-know-about-negotiation-part-one/">Here&rsquo;s a good resource on negotiation</a>.</p>
+<p>So keep cost and your operational costs at the forefront of your mind before you embark on your appsec journey. If you don&rsquo;t, it&rsquo;ll bite you further down the track. Whether this is in having to completely drop services, let go of resources, or to accept working with outdated technology, it is not a good realisation to have three years into your program.</p>
+<p>TLDR: <strong>Budget allocation and recovery methods are important to keep in mind and define early in your appsec engagement. Negotiate where possible.</strong></p>
+<h2 id="exit-stage-left">Exit Stage Left</h2>
+<p>Hey thank you so much for reading and I hope you&rsquo;ve learned a few pieces of useful information for kickstarting your appsec program! Next few blog posts will focus on specific tooling and the strategies you can put in place to get it right.</p>
+<p>If you&rsquo;ve got any questions, leave me a comment below or message me by email or on linkedin friends!</p>
+<p>Cole Cornford</p>
+
+  </main>
+  <div id="disqus-container">
+  
+</div>
+
+
+          <footer role="contentinfo">
+  <div>
+    <label for="themer">
+      dark theme: <input type="checkbox" id="themer" class="vh">
+      
+      <span aria-hidden="true"></span>
+    </label>
+  </div>
+  
+    (c) Cole Cornford 2020
+  
+</footer>
+
+        </div>
+      </div>
+    </div>
+    
+
+<script src="/js/dom-scripts.js"></script>  
+
+<script src="/js/prism.js"></script>
+
+
+
+<script src="/js/search.7aef046a0cc8b0c532f1d20087b920459bc868c936bb48a6ae221eceefca2d07.js"></script>
+
+<link rel="stylesheet" href="/css/search.fe0cd54a21628574bff49d721c827d1bb165ab56b0f22dd55ae78addbe61c309.css"></link>
+
+
+
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    
+  
+
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Cole Cornford</title>
+    <link>https://colecornford.com/post/</link>
+    <description>Recent content in Posts on Cole Cornford</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://colecornford.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSP Adoption in Australia</title>
+      <link>https://colecornford.com/2021-may/</link>
+      <pubDate>Fri, 28 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2021-may/</guid>
+      <description>Hi friends!
+Welcome back to my series of security blog posts. I hope to write these on a weekly basis. If you have any feedback, feel free to message me on LinkedIn!
+A B C S P Originally, the Content Security Policy was developed to counter an influx of Cross-Site Scripting attacks. Fundamentally, if you knew what content was being placed in your website, you should be able to specify as policy specifically what you trust and from where.</description>
+    </item>
+    
+    <item>
+      <title>Code Quality vs Code Security.</title>
+      <link>https://colecornford.com/2020-jan/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2020-jan/</guid>
+      <description>Today, I was reviewing some source code for security weaknesses. I stumbled across code that made me chuckle. Something along these lines.
+public String XOR(String method, String input, String key) { if (method == &amp;quot;Encrypt&amp;quot;) { return XOR_Encrypt(input, key); } else if (method == &amp;quot;Decrypt&amp;quot;) { return XOR_Decrypt(input, key); } else { return input; } }  As software engineers, we have all contributed in our own way to the legacy.</description>
+    </item>
+    
+    <item>
+      <title>SameSite Cookies! Coming to break your website Feb2020.</title>
+      <link>https://colecornford.com/2019-oct-2/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2019-oct-2/</guid>
+      <description>Hey friends!
+Today i wanted to talk about the SameSite cookie attribute, and how the browser flip from Off to On by default is well. .. kind of going to screw up the internet internet in Australia in Feb 2020.
+What is SameSite SameSite is a cookie security attribute that was introduced to address cross-site request forgery. A cookie is a piece of data sent from a website and stored in the web browser.</description>
+    </item>
+    
+    <item>
+      <title>Branding Matters</title>
+      <link>https://colecornford.com/2019-oct-1/</link>
+      <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2019-oct-1/</guid>
+      <description>About 12 hours or so ago, Alastair Macgibbon (Australian Spook Directorate) and John Paitaridis (Optus) announced a new company. Twelve Australian Cybersecurity companies will be joined into one CoolFriends group.
+I think this news is fantastic. I have spoken to many of their employees at conferences in the past. They are talented, enthusiastic, and driven InfoSec professionals.
+Who knows, maybe some of the traditional industry players (Big4 Consultancies) might have some competition now.</description>
+    </item>
+    
+    <item>
+      <title>Reflecting on Facebook Interview</title>
+      <link>https://colecornford.com/2019-jun/</link>
+      <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2019-jun/</guid>
+      <description>I&amp;rsquo;ve kind of dropped off the face of the internet for the last month or so. The reason is that I was preparing for an on-site interview with a big technology company in the USA. That company was Facebook.
+I was approached by a FB recruiter on LinkedIn and even though i felt that I had no chance with the company, I went ahead with the process anyway.
+See, I felt that I could make a big difference to billions of people worldwide by working there.</description>
+    </item>
+    
+    <item>
+      <title>Subresource Integrity - Gecko Deep Dive</title>
+      <link>https://colecornford.com/2019-may/</link>
+      <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2019-may/</guid>
+      <description>Recently I&amp;rsquo;ve been doing code reviews of applications and have been recommending they take advantage of the security benefits that Subresource Integrity provides. This article will go into some detail about what it is and by analysing the Gecko source code some subtle nuances we can learn about it.
+What and why? I think an example would help illustrate the problem. When you navigate to a webpage, you initially perform a TCP Handshake on whichever Origin you attempt to navigate to.</description>
+    </item>
+    
+    <item>
+      <title>Easy as C S P!</title>
+      <link>https://colecornford.com/2019-apr-2/</link>
+      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2019-apr-2/</guid>
+      <description>One of my avid readers the other day sent me a screenshot of my website run through an automated tool.
+Well then, I suck and I guess I&amp;rsquo;ll have to close up my AppSec blog now!
+..
+But really, I think it&amp;rsquo;s good to talk about what&amp;rsquo;s going on here.
+D Grade A cool dude by the name of Scott Helme released securityheaders.com which will submit a HTTP request to the domain you specified, receive a response, and then analyse the headers that were in the response.</description>
+    </item>
+    
+    <item>
+      <title>AppSec 101 - Where Do I Begin?</title>
+      <link>https://colecornford.com/2019-apr-1/</link>
+      <pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2019-apr-1/</guid>
+      <description>I thought I&amp;rsquo;d write a series of blog posts covering the core aspects of Application Security, and I&amp;rsquo;m not talking about vulnerabilities. I&amp;rsquo;m going to start with well.. the start!
+Setting the Stage Generally, when organisations are first starting to think about or begin to implement an AppSec strategy, the following scenario happens in one way or another.
+Mr CIO walks into work, sits down with his double shot espresso from his local barista and writes up the following email to the organisations CISO.</description>
+    </item>
+    
+    <item>
+      <title>Curly Wurly</title>
+      <link>https://colecornford.com/2019-mar-2/</link>
+      <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2019-mar-2/</guid>
+      <description>If you&amp;rsquo;ve lived in Australia or Britain you&amp;rsquo;ve probably come across this beauty. Chewy, tasty, and featuring an awesome lattice shape it&amp;rsquo;s a pretty awesome chocolate bar friends! 3.5 stars.
+But this blog&amp;rsquo;s about AppSec not rating choccies so let&amp;rsquo;s get back on track. While chewing on one of these goodies I thought, hey, why not write about curl, a program that I&amp;rsquo;ve found absolutely essential for getting my automated DevSecOps pipelines up and running.</description>
+    </item>
+    
+    <item>
+      <title>Blogging Platform Choices</title>
+      <link>https://colecornford.com/2019-mar-1/</link>
+      <pubDate>Sat, 02 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2019-mar-1/</guid>
+      <description>I was laying on my lounge for New Years Eve 2018 (boring i know hey?).
+It wasn&amp;rsquo;t that bad, I was watching my favourite MTG Streamer playing Sorin&amp;rsquo;s Vengeance + Twincast, a beautiful&amp;hellip; if not infuriating combination of magic cards.
+I had realised I had gone through 2018 without terribly many technical achievements in work and life. Sure, I had learned a huge amount from my amazing colleagues. But it seemed like for that time period, I&amp;rsquo;d just gained an extra notch on my LinkedIn profile.</description>
+    </item>
+    
+  </channel>
+</rss>

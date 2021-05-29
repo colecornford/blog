@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSP on Cole Cornford</title>
+    <link>https://colecornford.com/tags/csp/</link>
+    <description>Recent content in CSP on Cole Cornford</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://colecornford.com/tags/csp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSP Adoption in Australia</title>
+      <link>https://colecornford.com/2021-may/</link>
+      <pubDate>Fri, 28 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://colecornford.com/2021-may/</guid>
+      <description>Hi friends!
+Welcome back to my series of security blog posts. I hope to write these on a weekly basis. If you have any feedback, feel free to message me on LinkedIn!
+A B C S P Originally, the Content Security Policy was developed to counter an influx of Cross-Site Scripting attacks. Fundamentally, if you knew what content was being placed in your website, you should be able to specify as policy specifically what you trust and from where.</description>
+    </item>
+    
+  </channel>
+</rss>
