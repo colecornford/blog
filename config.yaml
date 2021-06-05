@@ -19,7 +19,7 @@ imaging:
 params:
   description: Security, Gaming, Travel, and other interests!
   homeMetaContent: Security, Gaming, Travel, and other interests!
-  footer: (c) Cole Cornford 2020
+  footer: (c) Cole Cornford 2021
   # For more date formats see https://gohugo.io/functions/format/
   dateFormat: Jan 2, 2006
   codePenUser: someUser
